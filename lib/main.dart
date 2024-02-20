@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/config/theme/app_theme.dart';
+import 'package:widgets_app/presentation/screens/home/home_screen.dart';
+
+/*
+  * En esta seccion usamos gif y diferentes funciones de botones como navegaciones.
+*/
 
 void main() {
   runApp(const MainApp());
@@ -10,12 +16,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hola mundo!'),
-        ),
-      ),
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme(selectedColor: 1).getTheme(),
+      home: const HomeScreen()
     );
   }
 }
