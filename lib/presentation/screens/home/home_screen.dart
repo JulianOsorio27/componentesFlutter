@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
+import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+// En esta clase tenemos el listView el cual se encarga de mostrar el menu de appMenuItems
 class _HomeView extends StatelessWidget {
   const _HomeView();
 
@@ -32,6 +34,7 @@ class _HomeView extends StatelessWidget {
   }
 }
 
+// En este widget tenemos el ListTile reutilizable en esta clase con su navegacion 
 class _CustomListTitle extends StatelessWidget {
   const _CustomListTitle({
     required this.menuItem,
@@ -50,7 +53,18 @@ class _CustomListTitle extends StatelessWidget {
       title: Text( menuItem.title ),
       subtitle: Text( menuItem.subTitle ),
       onTap: () {
-        // TODO: Navegar a otra pantalla
+       
+      //  Abrir otros enlaces Navegacion entre pantallas.
+
+      // Navigator.of(context).push(
+      //   MaterialPageRoute(
+      //     builder: (context) => const ButtonsScreen(), )
+      // );
+
+      Navigator.pushNamed(context, menuItem.link);
+      
+
+
       },
     );
   }
