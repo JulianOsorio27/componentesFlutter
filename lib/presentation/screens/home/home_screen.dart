@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app/config/menu/menu_items.dart';
 import 'package:widgets_app/presentation/screens/buttons/buttons_screen.dart';
 
@@ -22,7 +23,6 @@ class _HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return ListView.builder(
       itemCount: appMenuItems.length,
       itemBuilder: (context, index) {
@@ -34,7 +34,7 @@ class _HomeView extends StatelessWidget {
   }
 }
 
-// En este widget tenemos el ListTile reutilizable en esta clase con su navegacion 
+// En este widget tenemos el ListTile reutilizable en esta clase con su navegacion
 class _CustomListTitle extends StatelessWidget {
   const _CustomListTitle({
     required this.menuItem,
@@ -44,27 +44,28 @@ class _CustomListTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final colors = Theme.of(context).colorScheme;
 
     return ListTile(
       leading: Icon(menuItem.icon, color: colors.primary),
-      trailing: Icon(Icons.arrow_forward_ios_outlined, color: colors.primary,),
-      title: Text( menuItem.title ),
-      subtitle: Text( menuItem.subTitle ),
+      trailing: Icon(
+        Icons.arrow_forward_ios_outlined,
+        color: colors.primary,
+      ),
+      title: Text(menuItem.title),
+      subtitle: Text(menuItem.subTitle),
       onTap: () {
-       
-      //  Abrir otros enlaces Navegacion entre pantallas.
+        //  Abrir otros enlaces Navegacion entre pantallas.
 
-      // Navigator.of(context).push(
-      //   MaterialPageRoute(
-      //     builder: (context) => const ButtonsScreen(), )
-      // );
+        // Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => const ButtonsScreen(), )
+        // );
 
-      Navigator.pushNamed(context, menuItem.link);
-      
+        // Navigator.pushNamed(context, menuItem.link);
 
-
+        // Realizamos la navegación
+        context.push(menuItem.link);
       },
     );
   }
