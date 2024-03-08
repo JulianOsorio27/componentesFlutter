@@ -17,6 +17,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // Definimos el roterConfig
     return  MaterialApp.router(
+      title: 'Flutter Widgets',
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
       theme: AppTheme(selectedColor: 4).getTheme(),
