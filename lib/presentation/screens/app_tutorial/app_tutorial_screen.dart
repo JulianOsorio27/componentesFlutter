@@ -84,7 +84,7 @@ bool endReached = false;
             right: 20,
             child: TextButton(
               onPressed: () => context.pop(), 
-              child: Text('Skip'))
+              child: const Text('Skip'))
             ),
 
           endReached ?
