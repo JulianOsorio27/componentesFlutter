@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:widgets_app/config/router/app_router.dart';
+import 'package:widgets_app/config/theme/app_theme.dart';
+
+/*
+  * En esta seccion usamos gif y diferentes funciones de botones como navegaciones.
+*/
 
 void main() {
   runApp(const MainApp());
@@ -9,13 +15,12 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hola mundo!'),
-        ),
-      ),
+    // Definimos el roterConfig
+    return  MaterialApp.router(
+      routerConfig: appRouter,
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme(selectedColor: 4).getTheme(),
+      
     );
   }
 }
